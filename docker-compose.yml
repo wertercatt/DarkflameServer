@@ -31,8 +31,8 @@ services:
     networks:
       - darkflame
     # You can expose these so that DB management tools can connect (WARNING: INSECURE)
-    # ports:
-    #   - 3306:3306
+    ports:
+      - 3307:3306
 
   darkflame:
     container_name: DarkflameServer
@@ -63,7 +63,7 @@ services:
       context: .
       dockerfile: ./docker/brickfix.Dockerfile
     ports:
-      - 80:80
+      - 81:80
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:80"]
       interval: 2m
